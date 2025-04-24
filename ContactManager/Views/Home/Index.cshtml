@@ -1,8 +1,55 @@
-﻿@{
-    ViewData["Title"] = "";
+﻿@model List<Contacts>
+@{
+    ViewData["Title"] = "Contact Manager";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Number</td>
+            <td>Email Address</td>
+            <td>Notes</td>
+            <td>*</td>
+        </tr>
+        </thead>
+        
+        <tbody>
+        @foreach (var con in Model)
+        {
+            <tr>
+                <td>@con.Id</td>
+                <td>@con.FullName</td>
+                <td>@con.PhoneNumber</td>
+                <td>@con.Email</td>
+                <td>@con.Notes</td>
+                
+                <td>
+                    <a asp-action="Favorites" asp-route="@con.Id">Add to favs</a>
+                    <select style="width: 1.5rem" onchange="handleActionChange(this, @con.Id, @con.IsFavorite = 1)">
+                        <option disabled selected>•••</option>
+                        <option value="Edit">Edit</option>
+                        <option value="Delete">Delete</option>
+                        <option value="Favorite">Add to favorites</option>
+                    </select>
+
+                    <script>
+                        function handleActionChange(selectElement, contactId) {
+                            const action = selectElement.value;
+                            if (action === "Edit") {
+                                window.location.href = `/Home/Edit/${contactId}`;
+                            } else if (action === "Delete") {
+                                window.location.href = `/Home/Delete/${contactId}`;
+                            } else if (action === "Favorite") {
+                                alert("Added to favorites!");
+                            }
+                        }
+                    </script>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>

@@ -12,7 +12,7 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<ContactContext>(options =>
-                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")) // Use SQL Server for the ItemContext
+                options.UseSqlite(builder.Configuration.GetConnectionString("ContactContext")) 
         );
 
 

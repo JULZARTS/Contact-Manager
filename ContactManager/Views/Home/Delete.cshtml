@@ -1,0 +1,25 @@
+@model Contacts
+
+<div class="form-control">
+    <h6 style="text-align: center">Delete</h6>
+
+    <form asp-action="Delete" method="post">
+
+        <h3>Are you sure you wanna delete this contact?</h3>
+        <div class="form-group">
+        
+            <input type="text" class="form-control" tabindex="-1"
+                   asp-for="FullName"/>
+            <input type="text" class="form-control" tabindex="-1"
+                   asp-for="PhoneNumber"/>    
+            <input type="text" class="form-control" tabindex="-1"
+                   asp-for="Email"/>
+            
+        </div>
+        
+
+        <button type="submit" class="btn btn-danger">Confirm</button>
+        
+        <button asp-action="Index" class="btn btn-primary">Cancel</button>
+    </form>
+</div>

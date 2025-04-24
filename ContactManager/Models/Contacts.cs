@@ -16,5 +16,7 @@ public class Contacts
     [EmailAddress]
     public string Email { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; }  
+    
+    public bool IsFavorite { get; set; }
 }
