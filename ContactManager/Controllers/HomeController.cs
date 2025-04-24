@@ -24,7 +24,7 @@ public class HomeController : Controller
     
     public async Task <IActionResult> Edit(int id)
     {
-        var contacts = await _contactContext.ContactNums.FirstOrDefaultAsync();
+        var contacts = await _contactContext.ContactNums.FirstOrDefaultAsync(x => x.Id == id);
         return View(contacts);
     }
     
@@ -88,22 +88,40 @@ public class HomeController : Controller
         }
         return View();
     }
-    
-    
+
+
+
+
     public async Task<IActionResult> Favorites()
     {
-        var contacts = await _contactContext.ContactNums.Where(x => x.IsFavorite == true).ToListAsync();
+        var contacts = await _contactContext.ContactNums
+            .Where(x => x.IsFavorite).ToListAsync();
         return View(contacts);
     }
+    
+    
 
 
-    [HttpPost]
-    public async Task<IActionResult> addToFavorites([Bind("IsFavorites")] Contacts contacts)
+    public async Task<IActionResult> addToFavorites(int id)
     {
-        _contactContext.ContactNums.Update(contacts);
-        _contactContext.SaveChangesAsync();
+        var contacts = await _contactContext.ContactNums.FirstOrDefaultAsync(x => x.Id == id);
+        contacts.IsFavorite = true;
+        await _contactContext.SaveChangesAsync();
 
         return RedirectToAction("Index");
+    }  
+    
+    
+    
+    
+    
+    public async Task<IActionResult> removeToFavorites(int id)
+    {
+        var contacts = await _contactContext.ContactNums.FirstOrDefaultAsync(x => x.Id == id);
+        contacts.IsFavorite = false;
+        await _contactContext.SaveChangesAsync();
+
+        return RedirectToAction("Favorites");
     }
 
 

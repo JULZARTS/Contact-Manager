@@ -27,8 +27,8 @@
                 <td>@con.Notes</td>
                 
                 <td>
-                    <a asp-action="Favorites" asp-route="@con.Id">Add to favs</a>
-                    <select style="width: 1.5rem" onchange="handleActionChange(this, @con.Id, @con.IsFavorite = 1)">
+         
+                    <select style="width: 1.5rem" onchange="handleActionChange(this, @con.Id)">
                         <option disabled selected>•••</option>
                         <option value="Edit">Edit</option>
                         <option value="Delete">Delete</option>
@@ -43,6 +43,7 @@
                             } else if (action === "Delete") {
                                 window.location.href = `/Home/Delete/${contactId}`;
                             } else if (action === "Favorite") {
+                                window.location.href = `/Home/addToFavorites/${contactId}`;
                                 alert("Added to favorites!");
                             }
                         }

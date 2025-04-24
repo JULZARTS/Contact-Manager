@@ -10,13 +10,13 @@
         <tr>
             <td>Id</td>
             <td>Name</td>
-            <td>Contact Number</td>
+            <td>Number</td>
             <td>Email Address</td>
             <td>Notes</td>
             <td>*</td>
         </tr>
         </thead>
-        
+
         <tbody>
         @foreach (var con in Model)
         {
@@ -26,14 +26,29 @@
                 <td>@con.PhoneNumber</td>
                 <td>@con.Email</td>
                 <td>@con.Notes</td>
-                
+
                 <td>
-                    <select style="width: 1.5rem">
+
+                    <select style="width: 1.5rem" onchange="handleActionChange(this, @con.Id)">
                         <option disabled selected>•••</option>
-                        <option asp-action="Edit" asp-route-id="@con.Id">Edit</option>
-                        <option asp-action="Delete" asp-route-id="@con.Id">Delete</option>
-                        <option>Add to favorites</option>
+                        <option value="Edit">Edit</option>
+                        <option value="Delete">Delete</option>
+                        <option value="Favorite">Remove</option>
                     </select>
+
+                    <script>
+                        function handleActionChange(selectElement, contactId) {
+                            const action = selectElement.value;
+                            if (action === "Edit") {
+                                window.location.href = `/Home/Edit/${contactId}`;
+                            } else if (action === "Delete") {
+                                window.location.href = `/Home/Delete/${contactId}`;
+                            } else if (action === "Favorite") {
+                                window.location.href = `/Home/removeToFavorites/${contactId}`;
+                                alert("Added to favorites!");
+                            }
+                        }
+                    </script>
                 </td>
             </tr>
         }

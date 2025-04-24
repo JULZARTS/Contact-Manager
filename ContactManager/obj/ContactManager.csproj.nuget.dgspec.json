@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/juliusignacio/Codes/C#/Asp.net/ContactManager/ContactManager/ContactManager.csproj": {}
+    "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/ContactManager.csproj": {}
   },
   "projects": {
-    "/home/juliusignacio/Codes/C#/Asp.net/ContactManager/ContactManager/ContactManager.csproj": {
+    "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/ContactManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/juliusignacio/Codes/C#/Asp.net/ContactManager/ContactManager/ContactManager.csproj",
+        "projectUniqueName": "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/ContactManager.csproj",
         "projectName": "ContactManager",
-        "projectPath": "/home/juliusignacio/Codes/C#/Asp.net/ContactManager/ContactManager/ContactManager.csproj",
+        "projectPath": "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/ContactManager.csproj",
         "packagesPath": "/home/juliusignacio/.nuget/packages/",
-        "outputPath": "/home/juliusignacio/Codes/C#/Asp.net/ContactManager/ContactManager/obj/",
+        "outputPath": "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/juliusignacio/.nuget/NuGet/NuGet.Config"

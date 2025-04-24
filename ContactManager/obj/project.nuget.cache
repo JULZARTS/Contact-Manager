@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P/XWB1fGMBM=",
+  "dgSpecHash": "yCgBtWlGkpk=",
   "success": true,
-  "projectFilePath": "/home/juliusignacio/Codes/C#/Asp.net/ContactManager/ContactManager/ContactManager.csproj",
+  "projectFilePath": "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/ContactManager.csproj",
   "expectedPackageFiles": [
     "/home/juliusignacio/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/juliusignacio/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
