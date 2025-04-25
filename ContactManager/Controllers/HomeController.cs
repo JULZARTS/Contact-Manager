@@ -18,6 +18,7 @@ public class HomeController : Controller
     public async Task <IActionResult> Index()
     {
         var contacts = await _contactContext.ContactNums.ToListAsync();
+
         return View(contacts);
     }  
     
@@ -107,8 +108,9 @@ public class HomeController : Controller
         var contacts = await _contactContext.ContactNums.FirstOrDefaultAsync(x => x.Id == id);
         contacts.IsFavorite = true;
         await _contactContext.SaveChangesAsync();
+        
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Favorites");
     }  
     
     
@@ -120,8 +122,8 @@ public class HomeController : Controller
         var contacts = await _contactContext.ContactNums.FirstOrDefaultAsync(x => x.Id == id);
         contacts.IsFavorite = false;
         await _contactContext.SaveChangesAsync();
-
-        return RedirectToAction("Favorites");
+        
+        return RedirectToAction("Index");
     }
 
 

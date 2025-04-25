@@ -3,16 +3,15 @@
     ViewData["Title"] = "Contact Manager";
 }
 
-<div>
-    <table class="table table-hover">
+<div class="table-container">
+    <table class="table table-bordered">
         <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Number</td>
-            <td>Email Address</td>
-            <td>Notes</td>
-            <td>*</td>
+        <tr  class="fw-bold; text-decoration-underline">
+            <td id="Column">Name</td>
+            <td id="Column">Number</td>
+            <td id="Column">Email Address</td>
+            <td id="Column">Notes</td>
+            <td id="Column"></td>
         </tr>
         </thead>
         
@@ -20,19 +19,37 @@
         @foreach (var con in Model)
         {
             <tr>
-                <td>@con.Id</td>
-                <td>@con.FullName</td>
+                <td>
+                @if (@con.IsFavorite)
+                {
+                    @($"{con.FullName} ★")
+                }
+                else
+                {
+                    @con.FullName
+                }
+                
+                </td>
                 <td>@con.PhoneNumber</td>
                 <td>@con.Email</td>
                 <td>@con.Notes</td>
                 
-                <td>
+                <td id="optionCol">
          
                     <select style="width: 1.5rem" onchange="handleActionChange(this, @con.Id)">
                         <option disabled selected>•••</option>
                         <option value="Edit">Edit</option>
                         <option value="Delete">Delete</option>
-                        <option value="Favorite">Add to favorites</option>
+                        <option value="@(@con.IsFavorite ? "Remove" : "Add")">
+                            @if (@con.IsFavorite)
+                            {
+                                @("Remove from favorites")
+                            }
+                            else
+                            {
+                                @("Add to favorites")
+                            }
+                            </option>
                     </select>
 
                     <script>
@@ -42,9 +59,12 @@
                                 window.location.href = `/Home/Edit/${contactId}`;
                             } else if (action === "Delete") {
                                 window.location.href = `/Home/Delete/${contactId}`;
-                            } else if (action === "Favorite") {
-                                window.location.href = `/Home/addToFavorites/${contactId}`;
-                                alert("Added to favorites!");
+                            } else if (action === "Remove") {
+                                    window.location.href = `/Home/removeToFavorites/${contactId}`;
+                                    alert("Removed from favorites!");
+                            } else if (action === "Add") {
+                                    window.location.href = `/Home/addToFavorites/${contactId}`;
+                                    alert("Added to favorites!");
                             }
                         }
                     </script>

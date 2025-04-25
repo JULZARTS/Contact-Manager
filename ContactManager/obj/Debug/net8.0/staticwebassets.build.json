@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s4PQ+7mqtQbDzNRTI3vyeqnDApD1zUGwUXioXRhmIdA=",
+  "Hash": "kIup3+TkzzbvyqwiPR5fTAAZ/uASmMBNlrHuW83m4K0=",
   "Source": "ContactManager",
   "BasePath": "_content/ContactManager",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/wwwroot/svg/plus-circle-outline-svgrepo-com.svg",
+      "SourceId": "ContactManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/juliusignacio/Codes/C#/asp/ContactManager/ContactManager/wwwroot/",
+      "BasePath": "_content/ContactManager",
+      "RelativePath": "svg/plus-circle-outline-svgrepo-com.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/svg/plus-circle-outline-svgrepo-com.svg"
     }
   ]
 }

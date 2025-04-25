@@ -1,19 +1,14 @@
 @model List<Contacts>
 
-
-<h1>Favorites</h1>
-
-
-<div>
-    <table class="table table-hover">
+<div class="table-container">
+    <table class="table table-bordered">
         <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Number</td>
-            <td>Email Address</td>
-            <td>Notes</td>
-            <td>*</td>
+        <tr  class="fw-bold; text-decoration-underline">
+            <td id="Column">Name</td>
+            <td id="Column">Number</td>
+            <td id="Column">Email Address</td>
+            <td id="Column">Notes</td>
+            <td id="Column"></td>
         </tr>
         </thead>
 
@@ -21,7 +16,6 @@
         @foreach (var con in Model)
         {
             <tr>
-                <td>@con.Id</td>
                 <td>@con.FullName</td>
                 <td>@con.PhoneNumber</td>
                 <td>@con.Email</td>

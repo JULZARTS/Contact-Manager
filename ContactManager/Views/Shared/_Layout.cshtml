@@ -16,32 +16,25 @@
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <nav>
-        <div class="container-fluid">
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Contacts</a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav flex-grow-1 justify-content-end" style="margin-right: 1rem">
-                    <li class="nav-item; align-content-end">
-                        <a class="nav-link text-dark" title="Add new Contact" asp-area="" asp-controller="Home" asp-action="Favorites">Favorites</a>
-                    </li>
-                </ul>
-
-
-                <ul class="navbar-nav flex-grow-1 justify-content-end" style="margin-right: 1rem">
-                    <li class="nav-item; align-content-end">
-                        <a class="nav-link text-dark" title="Add new Contact" asp-area="" asp-controller="Home" asp-action="Create">+</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<footer class="footer">
+    <nav class="navv">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")"
+                   asp-area="" asp-controller="Home" asp-action="Index">Contacts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Favorites" ? "active" : "")"
+                   asp-area="" asp-controller="Home" asp-action="Favorites">Favorites</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Create" ? "active" : "")"
+                   asp-area="" asp-controller="Home" asp-action="Create">New Contact</a>
+            </li>
+        </ul>
     </nav>
 </footer>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
